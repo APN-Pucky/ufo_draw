@@ -14,6 +14,10 @@ jobs:
       container:
         image: apnpucky/ubuntu-poetry
       steps:
+        - name: Install build essential and ninja
+          run: |
+            apt-get update
+            apt-get install -y build-essential ninja-build
         - uses: APN-Pucky/make-python-action@main
           with:
             test: true
