@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ufo-draw"
+name = "ufo_draw"
 version = "0.0.0"
 description = "Draw Feynman diagrams from UFO models"
 authors = ["Alexander Puck Neuwirth <alexander@neuwirth-informatik.de>"]
@@ -10,17 +10,18 @@ repository = "https://github.com/APN-Pucky/ufo-draw"
 python = "^3.8"
 feynml ="*"
 #feynml = {path= "../feynml", develop = true }
-#feynmodel =">0.0.1"
-feynmodel = {path= "../feynmodel", develop = true }
 
-#pyqgraf =">0.0.6"
-pyqgraf = {path= "../pyqgraf", develop = true }
+feynmodel =">=0.0.4"
+#feynmodel = {path= "../feynmodel", develop = true }
 
-pyfeyn2 ="*"
+pyqgraf =">=0.0.8"
+#pyqgraf = {path= "../pyqgraf", develop = true }
+
+pyfeyn2 =">=2.3.1"
 #pyfeyn2 = {path= "../pyfeyn2", develop = true }
 
 [tool.poetry.scripts]
-mkfeyndiag = "ufo_draw.ufo_draw:main"
+ufo_draw = "ufo_draw.ufo_draw:main"
 
 
 [tool.poetry.group.dev]
