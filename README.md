@@ -1,6 +1,18 @@
 # ufo_draw
 
-Allows you to quickly draw feynman diagrams from ufo model files
+Allows you to quickly draw feynman diagrams from ufo model files.
+
+## Installation
+
+```bash
+pip install ufo_draw # Install it
+```
+with optional `--user` or `--break-system-packages`. 
+However due to the amount of dependencies it might be better to install it using pipx to have dependencies in isolated versions
+
+```bash
+pipx install ufo_draw
+```
 
 ## Example
 
