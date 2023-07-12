@@ -56,6 +56,12 @@ def main():
         default="e- e+",
         help="Outgoing particles.",
     )
+    parser.add_argument(
+        "--fml",
+        action="store_true",
+        help="Output FeynML.",
+        default=False,
+    )
     # TODO convert general particle input to less general particle input
     # TODO filter orders
     # TODO filter propagators
@@ -65,8 +71,16 @@ def main():
     args = parser.parse_args()
 
     fml = generate_diagrams(args.path, args.initial.split(" "), args.final.split(" "), args.loops)
+
+    # Render diagrams
     for i,d in enumerate(fml.diagrams):
         auto_diagram(d)
         t = TikzFeynmanRender(d)
         t.render(show=True,file=args.output + f"_{i}")
+    # Write FML
+    if args.fml:
+        s = fml.to_xml()
+        # print s to args.output + ".fml"
+        with open(args.output + ".fml", "w") as f:
+            f.write(s)
 
