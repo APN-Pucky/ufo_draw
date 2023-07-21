@@ -1,14 +1,13 @@
-import feynml
-from pyqgraf import qgraf
 import argparse
 
+import feynml
 from feynmodel.interface.qgraf import feynmodel_to_qgraf, qgraf_to_feynmodel
 from feynmodel.interface.ufo import load_ufo_model
-
-from ufo_draw.ufo_diagrams import generate_diagrams
-
 from pyfeyn2.auto.diagram import auto_diagram
 from pyfeyn2.render.latex.tikzfeynman import TikzFeynmanRender
+from pyqgraf import qgraf
+
+from ufo_draw.ufo_diagrams import generate_diagrams
 
 
 def main():
@@ -23,7 +22,7 @@ def main():
         "--path",
         "--model",
         type=str,
-        default = "ufo_sm",
+        default="ufo_sm",
         help="Path to UFO model directory.",
     )
     parser.add_argument(
@@ -70,17 +69,18 @@ def main():
 
     args = parser.parse_args()
 
-    fml = generate_diagrams(args.path, args.initial.split(" "), args.final.split(" "), args.loops)
+    fml = generate_diagrams(
+        args.path, args.initial.split(" "), args.final.split(" "), args.loops
+    )
 
     # Render diagrams
-    for i,d in enumerate(fml.diagrams):
+    for i, d in enumerate(fml.diagrams):
         auto_diagram(d)
         t = TikzFeynmanRender(d)
-        t.render(show=True,file=args.output + f"_{i}")
+        t.render(show=True, file=args.output + f"_{i}")
     # Write FML
     if args.fml:
         s = fml.to_xml()
         # print s to args.output + ".fml"
         with open(args.output + ".fml", "w") as f:
             f.write(s)
-
