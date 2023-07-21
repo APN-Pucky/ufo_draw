@@ -1077,12 +1077,13 @@ devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benc
 
 [[package]]
 name = "feynman"
-version = "2.0.2"
-description = "Feynman diagrams with python-matplotlib."
+version = "2.1.0"
+description = "Feynman diagrams with python-matplotlib"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 files = [
-    {file = "feynman-2.0.2.tar.gz", hash = "sha256:6e26b8a93d7fd3d484eb6ed9373fca779ac77adddfdbca76f3baa09f59460ec8"},
+    {file = "feynman-2.1.0-py3-none-any.whl", hash = "sha256:307ebcda823765296cc39565322ab41c6a67ccbedd2ac97baa89ddb390f0620f"},
+    {file = "feynman-2.1.0.tar.gz", hash = "sha256:d04300ac1dd7398f36dedb09f7a9c5e31bf85326576885dd151cc9045f24a74c"},
 ]
 
 [package.dependencies]
@@ -3059,13 +3060,13 @@ pyparsing = ">=2.1.4"
 
 [[package]]
 name = "pyfeyn2"
-version = "2.3.3"
+version = "2.3.4"
 description = "PyFeyn is a package which makes drawing Feynman diagrams simple and programmatic.  Feynman diagrams are important constructs in perturbative field theory, so being able to draw them in a programmatic fashion is important if attempting to enumerate a large number of diagram configurations is important. The output quality of PyFeyn diagrams (into PDF or EPS formats) is very high, and special effects can be obtained by using constructs from PyX, which PyFeyn is based around"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "pyfeyn2-2.3.3-py3-none-any.whl", hash = "sha256:272e91e3686548b6f4c47020d4bd8f902f378ed355ef66ff1d4bbc6c06a6f852"},
-    {file = "pyfeyn2-2.3.3.tar.gz", hash = "sha256:959027ee0a600722f9b489d67ef55fba31a0f9d0771339e2a1a26fab67a07877"},
+    {file = "pyfeyn2-2.3.4-py3-none-any.whl", hash = "sha256:8788472d9541b5f06dc36b4d29bb6210f3486776a7ed9b38c3b4262ee482f213"},
+    {file = "pyfeyn2-2.3.4.tar.gz", hash = "sha256:8902a75eb64eafd6d4cbfc27d509ce4a419a0bb92e1dce0e7714010ec54a275c"},
 ]
 
 [package.dependencies]
@@ -3232,13 +3233,13 @@ tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "pyqgraf"
-version = "0.0.10"
+version = "0.0.11"
 description = "PyQgraf is a Python wrapper for Qgraf, a Feynman diagram generator."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "pyqgraf-0.0.10-py3-none-any.whl", hash = "sha256:b372912c20adb14806e8a53480fe04e61a2b766edfe633d9136d14101542dce4"},
-    {file = "pyqgraf-0.0.10.tar.gz", hash = "sha256:aa727861c528382a2c2b01017ebb2a35221998acf9418c3de89063a139a61caa"},
+    {file = "pyqgraf-0.0.11-py3-none-any.whl", hash = "sha256:676162495eba7c95fece12a93f9732acc6a27c0895fe5c975abdb343425a687d"},
+    {file = "pyqgraf-0.0.11.tar.gz", hash = "sha256:427cfb682bb18979cdc7f6757ecc52d97afe67b5d36a1dc1c63f72e9433ac06a"},
 ]
 
 [package.dependencies]
@@ -4620,4 +4621,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "021f9377f09aa53dc9d85833c34336ad3622b556dd809cf2669f4c099782c605"
+content-hash = "25726c05563a7df1bd4cc6784b8599cbe13e9f0c7bc47d6d9ae2cefa8ae16d34"
