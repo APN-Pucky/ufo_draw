@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ufo_draw"
-version = "0.0.1.19"
+version = "0.0.0"
 description = "Draw Feynman diagrams from UFO models"
 authors = ["Alexander Puck Neuwirth <alexander@neuwirth-informatik.de>"]
 readme = "README.md"
