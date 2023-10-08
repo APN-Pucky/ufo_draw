@@ -17,6 +17,7 @@ def generate_diagrams(
     inmomenta: List[str] = None,
     outmomenta: List[str] = None,
     loop_momentum: str = "l",
+    filter = None
 ) -> FeynML:
     """Generate FeynML diagrams from a UFO model."""
     if inmomenta is None:
@@ -34,6 +35,22 @@ def generate_diagrams(
     fm = load_ufo_model(path)
     # convert to feynmodel
     qgrafmodel = feynmodel_to_qgraf(fm, True, False)
+    #print(qgrafmodel)
+    if filter is not None:
+        nq = ""
+        # loop lines in the model
+        for l in qgrafmodel.splitlines():
+            hit = False
+            for f in filter:
+                # if the line is in the filter
+                if f in l:
+                    # add it to the new model
+                    hit = True
+            if not hit:
+                nq += l + "\n"
+        # overwrite the model
+        qgrafmodel = nq
+    #print(qgrafmodel)
 
     # Run pyQGRAF
     xml_string = qgraf.run(
