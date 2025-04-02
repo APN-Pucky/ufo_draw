@@ -1,11 +1,20 @@
 from typing import List
 
 from feynml.interface import qgraf as iqgraf
-from feynmodel.interface.qgraf import feynmodel_to_qgraf, qgraf_to_feynmodel
+from feynmodel.interface.qgraf import (
+    feynmodel_to_qgraf,
+    list_particle_names,
+    qgraf_to_feynmodel,
+)
 from feynmodel.interface.ufo import load_ufo_model
 from pyfeyn2.feynmandiagram import FeynML
 from pyqgraf import qgraf
 from xsdata.formats.dataclass.parsers import XmlParser
+
+
+def list_particles(path) -> List[str]:
+    fm = load_ufo_model(path)
+    return list_particle_names(fm)
 
 
 # TODO use own topology generator
