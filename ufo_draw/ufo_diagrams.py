@@ -1,15 +1,15 @@
 from typing import List
-from pyqgraf import qgraf
 
+from feynml.interface import qgraf as iqgraf
 from feynmodel.interface.qgraf import feynmodel_to_qgraf, qgraf_to_feynmodel
 from feynmodel.interface.ufo import load_ufo_model
-
-from xsdata.formats.dataclass.parsers import XmlParser
 from pyfeyn2.feynmandiagram import FeynML
-from feynml.interface import qgraf as iqgraf
+from pyqgraf import qgraf
+from xsdata.formats.dataclass.parsers import XmlParser
 
 
-def generate_diagrams(
+# TODO use own topology generator
+def generate_diagrams_qgraf(
     path: str,
     inparticles: List[str],
     outparticles: List[str],
@@ -17,7 +17,7 @@ def generate_diagrams(
     inmomenta: List[str] = None,
     outmomenta: List[str] = None,
     loop_momentum: str = "l",
-    filter = None
+    filter=None,
 ) -> FeynML:
     """Generate FeynML diagrams from a UFO model."""
     if inmomenta is None:
@@ -35,7 +35,7 @@ def generate_diagrams(
     fm = load_ufo_model(path)
     # convert to feynmodel
     qgrafmodel = feynmodel_to_qgraf(fm, True, False)
-    #print(qgrafmodel)
+    # print(qgrafmodel)
     if filter is not None:
         nq = ""
         # loop lines in the model
@@ -50,7 +50,7 @@ def generate_diagrams(
                 nq += l + "\n"
         # overwrite the model
         qgrafmodel = nq
-    #print(qgrafmodel)
+    # print(qgrafmodel)
 
     # Run pyQGRAF
     xml_string = qgraf.run(

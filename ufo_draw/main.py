@@ -1,4 +1,5 @@
 import argparse
+from typing import List
 
 import feynml
 from feynmodel.interface.qgraf import feynmodel_to_qgraf, qgraf_to_feynmodel
@@ -7,7 +8,7 @@ from pyfeyn2.auto.diagram import auto_diagram
 from pyfeyn2.render.latex.tikzfeynman import TikzFeynmanRender
 from pyqgraf import qgraf
 
-from ufo_draw.ufo_diagrams import generate_diagrams
+from ufo_draw.ufo_diagrams import generate_diagrams_qgraf
 
 
 def main():
@@ -61,6 +62,12 @@ def main():
         help="Output FeynML.",
         default=False,
     )
+    parser.add_argument(
+        "--filter",
+        action="append",
+        help="Exclude particles from generation. Can be used multiple times to add to the list.",
+        default=[],
+    )
     # TODO convert general particle input to less general particle input
     # TODO filter orders
     # TODO filter propagators
@@ -69,8 +76,12 @@ def main():
 
     args = parser.parse_args()
 
-    fml = generate_diagrams(
-        args.path, args.initial.split(" "), args.final.split(" "), args.loops
+    fml = generate_diagrams_qgraf(
+        args.path,
+        args.initial.split(" "),
+        args.final.split(" "),
+        args.loops,
+        filter=args.filter,
     )
 
     # Render diagrams
